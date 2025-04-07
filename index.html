@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>2 Bulan Izal & Alena</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: #ffe6f0;
+      overflow: hidden;
+    }
+    .container {
+      display: flex;
+      width: 300vw;
+      transition: transform 0.5s ease;
+    }
+    .slide {
+      width: 100vw;
+      height: 100vh;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 30px;
+    }
+    .slide h1 {
+      font-size: 2.5em;
+      color: #ff3399;
+    }
+    .slide p {
+      font-size: 1.3em;
+      color: #cc0066;
+    }
+    .nav-btns {
+      position: fixed;
+      bottom: 20px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 40px;
+    }
+    button {
+      font-size: 1.2em;
+      padding: 10px 20px;
+      border: none;
+      background: #ff66b2;
+      color: white;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+    .chibi {
+      width: 100px;
+      animation: dance 1s infinite;
+    }
+    @keyframes dance {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(5deg); }
+      75% { transform: rotate(-5deg); }
+    }
+    audio {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <audio autoplay loop controls>
+    <source src="https://cdn.pixabay.com/download/audio/2022/10/30/audio_f90e679f57.mp3?filename=romantic-piano-loop-122849.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <div id="slider" class="container">
+    <div class="slide" style="background:#fff0f5;">
+      <img src="https://i.ibb.co/NsvmpKM/chibi-couple.gif" class="chibi" alt="chibi"/>
+      <h1>Selamat 2 Bulan!</h1>
+      <p>Alena sayang, kamu tuh kayak lagu favorit... bikin hati aku repeat terus tiap hari!</p>
+    </div>
+    <div class="slide" style="background:#ffe6f0;">
+      <img src="https://i.ibb.co/NsvmpKM/chibi-couple.gif" class="chibi" alt="chibi"/>
+      <h1>Kamu Lucu Banget!</h1>
+      <p>Setiap senyum kamu itu kayak WiFi full bar — bikin koneksi hati makin kuat!</p>
+    </div>
+    <div class="slide" style="background:#fff0f5;">
+      <img src="https://i.ibb.co/NsvmpKM/chibi-couple.gif" class="chibi" alt="chibi"/>
+      <h1>I Love You</h1>
+      <p>Semoga kita selalu jadi tim paling romantis & ngakak sepanjang masa. Dari Izal, yang gak bisa berhenti mikirin kamu.</p>
+    </div>
+  </div>
+
+  <div class="nav-btns">
+    <button onclick="prevSlide()">← Sebelumnya</button>
+    <button onclick="nextSlide()">Selanjutnya →</button>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    function updateSlide() {
+      document.getElementById('slider').style.transform = `translateX(-${currentSlide * 100}vw)`;
+    }
+    function nextSlide() {
+      if (currentSlide < 2) currentSlide++;
+      updateSlide();
+    }
+    function prevSlide() {
+      if (currentSlide > 0) currentSlide--;
+      updateSlid
